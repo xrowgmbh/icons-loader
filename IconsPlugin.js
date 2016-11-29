@@ -109,13 +109,22 @@ IconsPlugin.prototype.apply = function (compiler) {
         });
     });
 
-    compiler.parser.plugin("expression __ICONS_PLUGIN_GLYPHS__", jsonDependency(function () {
-        return plugin.glyphs;
-    }));
+    compiler.plugin( "compilation", function( compilation, data ) {
+        data.normalModuleFactory.plugin( "parser", function( parser, options ) {
+            parser.plugin( "expression __ICONS_PLUGIN_GLYPHS__", jsonDependency( function () {
+                return plugin.glyphs;
+            }) )
+        });
+    });
 
-    compiler.parser.plugin("expression __ICONS_PLUGIN_STYLES__", jsonDependency(function () {
-        return plugin.styles;
-    }));
+    compiler.plugin( "compilation", function( compilation, data ) {
+        data.normalModuleFactory.plugin( "parser", function( parser, options ) {
+            parser.plugin( "expression __ICONS_PLUGIN_STYLES__", jsonDependency(function () {
+                return plugin.styles;
+            }) )
+        });
+    });
+
 };
 
 module.exports = IconsPlugin;
