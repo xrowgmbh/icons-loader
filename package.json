@@ -1,6 +1,6 @@
 {
   "name": "icons-loader",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Icons loader for webpack",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/tomgrooffer/icons-loader#readme",
   "dependencies": {
-    "enhanced-resolve": "^2.3",
     "gulp-iconfont": "^8",
     "loader-utils": "^0.2",
     "merge": "^1.2",

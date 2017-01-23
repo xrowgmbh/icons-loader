@@ -5,7 +5,6 @@ var iconfont = require("gulp-iconfont");
 var merge = require('merge');
 var LoaderUtils = require("loader-utils");
 var RawSource = require("webpack-core/lib/RawSource");
-var ModuleAliasPlugin = require("enhanced-resolve/lib/ModuleAliasPlugin");
 var NullFactory = require("webpack/lib/NullFactory");
 var ConstDependency = require("webpack/lib/dependencies/ConstDependency");
 
@@ -34,10 +33,6 @@ function IconsPlugin (options) {
 
 IconsPlugin.prototype.apply = function (compiler) {
     var plugin = this;
-
-    compiler.resolvers.normal.apply(new ModuleAliasPlugin({
-        "icons-loader": path.join(__dirname, "template.js"),
-    }));
 
     var cache = {};
 
